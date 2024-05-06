@@ -16,7 +16,7 @@ public interface MethodExecutionRepository extends JpaRepository<MethodExecution
             "FROM MethodExecution me " +
             "WHERE me.classEntity = :classEntity AND me.methodName = :methodName")
     Optional<Double> findAverageExecutionTimeMethodNameAndClassEntity(ClassEntity classEntity, String methodName);
-    @Query("SELECT new ru.evgenii.timecheckermethods.dto.MethodStatistics(me.methodName, AVG(me.executionTime)) " +
+    @Query("SELECT new ru.evgenii.timecheckermethods.dto.MethodStatistics(me.methodName, AVG(me.executionTime), COUNT(me.methodName)) " +
             "FROM MethodExecution me " +
             "WHERE me.classEntity = :classEntity " +
             "GROUP BY me.methodName")

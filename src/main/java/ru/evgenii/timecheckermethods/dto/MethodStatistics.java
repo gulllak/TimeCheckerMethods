@@ -8,4 +8,5 @@ import lombok.Getter;
 public class MethodStatistics {
     private String methodName;
     private double executionTimeAvg;
+    private long numberOfcalls;
 }

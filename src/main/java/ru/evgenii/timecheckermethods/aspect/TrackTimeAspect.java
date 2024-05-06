@@ -25,7 +25,7 @@ public class TrackTimeAspect {
     public Object trackTimeAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("Синхронное выполнение trackTimeAdvice");
         long startTime = System.currentTimeMillis();
-        Object result = null;
+        Object result;
 
         try {
             result = joinPoint.proceed();

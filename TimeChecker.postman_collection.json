@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "c9d448d3-7779-459e-99a4-a55df4640e3e",
+		"name": "TimeChecker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26186560"
+	},
+	"item": [
+		{
+			"name": "getMethodByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stats/average/method?className=TestMethodsImpl&methodName=testTrackTimeAnnotation",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stats",
+						"average",
+						"method"
+					],
+					"query": [
+						{
+							"key": "className",
+							"value": "TestMethodsImpl"
+						},
+						{
+							"key": "methodName",
+							"value": "testTrackTimeAnnotation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMethodByNameNotFound",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stats/average/method?className=TestMethodsImpl&methodName=testTrackTime",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stats",
+						"average",
+						"method"
+					],
+					"query": [
+						{
+							"key": "className",
+							"value": "TestMethodsImpl"
+						},
+						{
+							"key": "methodName",
+							"value": "testTrackTime"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMethodsByClassName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stats/average/class?className=TestMethodsImpl",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stats",
+						"average",
+						"class"
+					],
+					"query": [
+						{
+							"key": "className",
+							"value": "TestMethodsImpl"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMethodsByClassNameNotFound",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stats/average/class?className=TestMethods",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stats",
+						"average",
+						"class"
+					],
+					"query": [
+						{
+							"key": "className",
+							"value": "TestMethods"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMethodsByPackageName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stats/average/package?packageName=ru.evgenii.timecheckermethods",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stats",
+						"average",
+						"package"
+					],
+					"query": [
+						{
+							"key": "packageName",
+							"value": "ru.evgenii.timecheckermethods"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

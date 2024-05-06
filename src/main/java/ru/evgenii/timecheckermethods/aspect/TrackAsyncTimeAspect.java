@@ -29,7 +29,6 @@ public class TrackAsyncTimeAspect {
             "&& execution(void *(..))")
     public void asyncMethodsReturningVoid() {}
 
-
     @Around("asyncMethodsReturning()")
     public Object trackAsyncTimeAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         return CompletableFuture.supplyAsync(() -> {

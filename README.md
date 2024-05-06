@@ -1,7 +1,7 @@
 ### TimeCheckerMethods - система асинхронного и синхронного учета времени выполнения методов с использованием Spring AOP.
 
 #### Применение
-Используйте аннотации **@TrackTime** и **@TrackAsyncTime** над методами в коде своего приложения. Аспекты, будут автоматически обрабатывать ваши методы и сохранять информацию о времени их выполнения, для последуюзего анализа.
+_Используйте аннотации **@TrackTime** и **@TrackAsyncTime** над методами в коде своего приложения. Аспекты, будут автоматически обрабатывать ваши методы и сохранять информацию о времени их выполнения, для последуюзего анализа._
 
 
 #### Сохраняются следующие данные о методе:
@@ -11,6 +11,9 @@
 - Дата и время выполнения метода
 
 ##### REST API для получения статистики по времени выполнения методов:
+
+Для простоты тестирования api для получения статистики, в корневой директории проекта находится файл **_TimeChecker.postman_collection.json_**, который можно импортировать в Postman. 
+
 1. Возможность получить среднее время выполнения конкретного метода.
 Запрос можно выполнить по следующему эндпоинту:
 ```
@@ -20,7 +23,8 @@
 ```
    {
     "methodName": "testTrackTimeAnnotation",
-    "executionTimeAvg": 3503.3333333333335
+    "executionTimeAvg": 3503.3333333333335,
+    "numberOfcalls": 6
 }
    ```
 2. Возможность получить среднее время выполнения всех методов определенного класса.
@@ -36,15 +40,18 @@
     "methodStatistics": [
         {
             "methodName": "testTrackTimeAnnotation",
-            "executionTimeAvg": 3503.3333333333335
+            "executionTimeAvg": 3503.3333333333335,
+            "numberOfcalls": 6
         },
         {
             "methodName": "testTrackTimeAsyncAnnotationVoid",
-            "executionTimeAvg": 3504.8333333333335
+            "executionTimeAvg": 3504.8333333333335,
+            "numberOfcalls": 10
         },
         {
             "methodName": "testTrackTimeAsyncAnnotationReturn",
-            "executionTimeAvg": 3504.8333333333335
+            "executionTimeAvg": 3504.8333333333335,
+            "numberOfcalls": 41
         }
     ]
 }
@@ -64,15 +71,18 @@
         "methodStatistics": [
             {
                 "methodName": "testTrackTimeAnnotation",
-                "executionTimeAvg": 3503.3333333333335
+                "executionTimeAvg": 3503.3333333333335,
+                "numberOfcalls": 10
             },
             {
                 "methodName": "testTrackTimeAsyncAnnotationVoid",
-                "executionTimeAvg": 3504.8333333333335
+                "executionTimeAvg": 3504.8333333333335,
+                "numberOfcalls": 45
             },
             {
                 "methodName": "testTrackTimeAsyncAnnotationReturn",
-                "executionTimeAvg": 3504.8333333333335
+                "executionTimeAvg": 3504.8333333333335,
+                "numberOfcalls": 21
             }
         ]
     },
